@@ -1,0 +1,100 @@
+:root {
+    --bg-img: url('/aesthetic/assets/sl-bg-1.jpg');
+    --card-bg: pink;
+    --form-bg: lemonchiffon;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'freight-text-pro';
+    background-image: var(--bg-img);
+    background-size: cover;
+    font-size: 22px;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 5vw;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+
+#business-card {
+    display: flex;
+    flex-flow: column;
+    background-color: pink;
+    padding: 2rem;
+    padding-right: 0;
+    padding-bottom: 0;
+    width: clamp(15rem,32rem,calc(100% - 2rem));
+    background: var(--card-bg);
+}
+
+.title {
+    margin: 1rem;
+    margin-bottom: 6rem;
+}
+
+.tagline {
+    margin-left: 1rem;
+}
+
+.invitation {
+    margin-left: 2rem;
+}
+
+#contact-form {
+    display: flex;
+    flex-flow: column;
+    margin-right: 6rem;
+    margin-bottom: 6rem;
+}
+
+#contact-form label {
+    display: none;
+}
+#contact-form input {
+    margin-bottom: 1.5rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+    background: var(--form-bg);
+    border: 0;
+    padding: 0.5rem;
+}
+
+#contact-form *::placeholder {
+    color: #222;
+    opacity: 1;
+    font-style: italic;
+}
+
+#contact-form textarea {
+    height: 10rem;
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width: 667px) {
+    main {
+        padding: 0;
+    }
+    #contact-form {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+    }
+}
