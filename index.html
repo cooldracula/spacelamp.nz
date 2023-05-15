@@ -19,6 +19,7 @@
     <main>
       <section id="business-card">
         <div class='title'>
+          <img src='/aesthetic/assets/spacelamp-logo.png'/>
         <h1>Spacelamp</h1>
         <p class='tagline'>we design things</p>
         </div>
@@ -30,6 +31,7 @@
         <label for="contact">contact</label>
         <textarea id="line" name="line" placeholder="line"></textarea>
         <label for="line">line</label>
+        <input type="submit" value=drop />
 
       </form>
       </section>
@@ -43,8 +45,19 @@
         'sl-bg-5.jpg',
         'sl-bg-5.jpg'
        ];
+       const colorSets = [
+         ["#F4DBDA","#E2F0E0"],
+         ["#E2F0E0","#FFFDDE"],
+         ["#FFFDDE","#F8D9EA"],
+         ["#F8D9EA","#FFFDDE"],
+         ["#D9DCEA","#F8D9EA"],
+         ["#F8D9EA","#D9DCEA"]
+       ];
        newImage = images[Math.floor(Math.random() * images.length)];
+       newColorSet = colorSets[Math.floor(Math.random() * colorSets.length)];
        document.documentElement.style.setProperty("--bg-img", `url("/aesthetic/assets/${newImage}")`);
+       document.documentElement.style.setProperty("--card-bg", newColorSet[0]);
+       document.documentElement.style.setProperty("--form-bg", newColorSet[1]);
        const b = document.querySelector('body');
        b.classList.toggle('hidden');
      });
