@@ -32,11 +32,17 @@ body {
     box-sizing: border-box;
     padding: 1rem;
 }
+@media(max-width: 667px) {
+    body {
+        background-size: auto;
+    }
+}
 
 main {
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    flex-flow: column;
     padding: 3vw;
 }
 
@@ -119,6 +125,12 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+#credits {
+    margin-top: var(--space-sm);
+    color: var(--form-bg);
+    margin-left: calc(var(--space-md) + var(--space-ml));
 }
 
 @media(max-width: 667px) {

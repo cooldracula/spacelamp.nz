@@ -20,31 +20,43 @@
       <section id="business-card">
         <div class='title'>
           <img src='/aesthetic/assets/spacelamp-logo.png'/>
-        <h1>Spacelamp</h1>
-        <p class='tagline'>we design things</p>
+          <h1>Spacelamp</h1>
+          <p class='tagline'>we design things</p>
         </div>
-      <form id="contact-form">
-        <p class='invitation'>drop us a line</p>
-        <input type='text' placeholder="name" id="name" name="name" />
-        <label for="name">name</label>
-        <input type='text' placeholder="contact" id="contact" name="contact" />
-        <label for="contact">contact</label>
-        <textarea id="line" name="line" placeholder="line"></textarea>
-        <label for="line">line</label>
-        <input type="submit" value=drop />
-
-      </form>
+        <form id="contact-form">
+          <p class='invitation'>drop us a line</p>
+          <input type='text' placeholder="name" id="name" name="name" />
+          <label for="name">name</label>
+          <input type='text' placeholder="contact" id="contact" name="contact" />
+          <label for="contact">contact</label>
+          <textarea id="line" name="line" placeholder="line"></textarea>
+          <label for="line">line</label>
+          <input type="submit" value=drop />
+        </form>
       </section>
+      <section id="credits">
+      </section>
+      <template id="credit-template">
+        <p class="credit">
+          <span class="creator"></span>
+          <i class="piece"></i>
+        </p>
+      </template>
     </main>
     <script>
      document.addEventListener('DOMContentLoaded', () => {
-       const images = [
-        'sl-bg-1.png',
-        'sl-bg-2.png',
-        'sl-bg-3.png',
-        'sl-bg-5.png',
-        'sl-bg-5.png'
+       // bg image, tagline, image credits
+       const themes = [
+         ["sl-bg-1.png", "we design things", ["two/fiftyseven"]],
+         ["sl-bg-2.png", "we make places", ["x-frame"]],
+         ["sl-bg-3.png", "we support others",
+          ["Chevron Hassett, The Upper Jaw",
+           "Tayi Tibble, Hawaiki",
+           "Nikau Hindin, Taumatakuku"]],
+         ["sl-bg-4.png", "we bring together", [" Victor Tepaa, Ake! Ake! Ake!"]],
+         ["sl-bg-5.png", "we care deeply", ["designtree x spacelamp, two/fiftyseven desk"]]
        ];
+
        const colorSets = [
          ["#F4DBDA","#E2F0E0"],
          ["#E2F0E0","#FFFDDE"],
@@ -53,13 +65,31 @@
          ["#D9DCEA","#F8D9EA"],
          ["#F8D9EA","#D9DCEA"]
        ];
-       newImage = images[Math.floor(Math.random() * images.length)];
        newColorSet = colorSets[Math.floor(Math.random() * colorSets.length)];
-       document.documentElement.style.setProperty("--bg-img", `url("/aesthetic/assets/${newImage}")`);
-       document.documentElement.style.setProperty("--card-bg", newColorSet[0]);
-       document.documentElement.style.setProperty("--form-bg", newColorSet[1]);
-       const b = document.querySelector('body');
-       b.classList.toggle('hidden');
+       newTheme = themes[Math.floor(Math.random() * themes.length)];
+       [image,tagline,credits] = newTheme;
+
+       baseStyle = document.documentElement.style;
+       baseStyle.setProperty("--bg-img", `url("/aesthetic/assets/${image}")`);
+       baseStyle.setProperty("--card-bg", newColorSet[0]);
+       baseStyle.setProperty("--form-bg", newColorSet[1]);
+
+       const taglineElem = document.querySelector('.tagline');
+       taglineElem.textContent = tagline;
+
+       const creditsElem = document.querySelector('#credits');
+       const creditTemplate = document.querySelector('#credit-template');
+       credits.forEach(c => {
+         [creator,piece] = c.split(',');
+         const credit = creditTemplate.content.cloneNode(true);
+         let creatorElem = credit.querySelector('.creator');
+         let pieceElem = credit.querySelector('.piece');
+         creatorElem.textContent = creator;
+         pieceElem.textContent = piece;
+         creditsElem.appendChild(credit);
+       });
+
+       document.querySelector('body').classList.remove('hidden');
      });
     </script>
 
