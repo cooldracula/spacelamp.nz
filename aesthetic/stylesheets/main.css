@@ -1,6 +1,6 @@
 :root {
     --font-base: 18px;
-    --bg-img: url('/aesthetic/assets/sl-bg-1.png');
+    --bg-img: url('/aesthetic/assets/bg1.jpg');
     --card-bg: pink;
     --form-bg: lemonchiffon;
 
@@ -26,6 +26,7 @@ html {
 
 body {
     font-family: 'freight-text-pro';
+    background-color: var(--card-bg);
     background-image: var(--bg-img);
     background-size: cover;
     font-size: var(--font-base);
