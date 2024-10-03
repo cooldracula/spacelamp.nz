@@ -73,6 +73,41 @@ h1 {
     margin-left: 0.5rem;
 }
 
+#about .title {
+    margin-bottom: 0rem;
+}
+
+#about h2 {
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+#about a {
+    font-size: 0.95rem;
+    color: #2f2f2f;
+}
+
+nav {
+    padding-top: 2rem;
+    padding-right: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+nav a {
+    color: var(--form-bg);
+}
+
+#content {
+    margin-left: 1.5rem;
+}
+
+.readable {
+    max-width: 40rem;
+}
+
 .tagline {
     margin: 0;
     padding: 0;
@@ -132,6 +167,10 @@ h1 {
     margin-top: var(--space-sm);
     color: var(--form-bg);
     margin-left: calc(var(--space-md) + var(--space-ml));
+}
+
+#about {
+    background: #FFFDD3;
 }
 
 @media(max-width: 667px) {
