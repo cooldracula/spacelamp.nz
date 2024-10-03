@@ -78,9 +78,17 @@ h1 {
 }
 
 #about h2 {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     font-size: 1rem;
     font-weight: normal;
+}
+
+#about .project {
+    margin-top: 2rem;
+}
+
+#about h2 + .project {
+    margin-top: 1.2rem;
 }
 
 #about a {
